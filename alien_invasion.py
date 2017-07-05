@@ -25,7 +25,7 @@ def run_game():
     bullets = Group()
     aliens = Group()
     # Create a fleet of the aliens.
-    gf.create_fleet(ai_settings, screen, aliens)
+    gf.create_fleet(ai_settings, screen, ship, aliens)
 
     # Start the loop for the game.
     while True:
@@ -33,7 +33,8 @@ def run_game():
         """refactored. Original function commented out(below) and moved to game functions module"""
         gf.check_events(ai_settings, screen, ship, bullets)
         ship.update()
-        gf.update_bullets(bullets)
+        gf.update_bullets(aliens, bullets)
+        gf.update_aliens(ai_settings, aliens)
         gf.update_screen(ai_settings, screen, ship, aliens, bullets)
 
 
