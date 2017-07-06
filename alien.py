@@ -9,10 +9,12 @@ class Alien(Sprite):
         super(Alien, self).__init__()
         self.screen = screen
         self.ai_settings = ai_settings
+        self.speed_factor = ai_settings.alien_speed_factor
 
         # Load the alien image on the screen
-        self.image = pygame.image.load('images/alien.bmp')
+        self.image = pygame.image.load('images/pixel-alien.png')
         self.rect = self.image.get_rect()
+        print(self.rect)
 
         # Start each new alien near the top left of the screen
         self.rect.x = self.rect.width
@@ -35,6 +37,6 @@ class Alien(Sprite):
 
     def update(self):
         """Move aliens right or left."""
-        self.x += (self.ai_settings.alien_speed_factor *
+        self.x += (self.speed_factor *
                         self.ai_settings.fleet_direction)
         self.rect.x = self.x

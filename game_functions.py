@@ -1,6 +1,7 @@
 import sys
 
 import pygame
+from background import Background
 from bullet import Bullet
 from alien import Alien
 
@@ -42,6 +43,8 @@ def update_screen(ai_settings, screen, ship, aliens, bullets):
     """Update images on screen and flip to the new screen."""
     # Redraw the screem during each pass through of the loop.
     screen.fill(ai_settings.bg_color)
+    background = Background("images/space-1.jpg")
+    screen.blit(background.image, background.rect)
     # Redraw all bullets behind ship and aliens.
     for bullet in bullets.sprites():
         bullet.draw_bullet()
@@ -110,6 +113,7 @@ def check_fleet_edges(ai_settings, aliens):
 def change_fleet_direction(ai_settings, aliens):
     """Drop the entire fleet and change the fleets direction."""
     for alien in aliens.sprites():
+        alien.speed_factor += 0.5
         alien.rect.y += ai_settings.fleet_drop_speed
     ai_settings.fleet_direction *= -1
 
