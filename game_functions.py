@@ -43,8 +43,8 @@ def update_screen(ai_settings, screen, ship, aliens, bullets):
     """Update images on screen and flip to the new screen."""
     # Redraw the screem during each pass through of the loop.
     screen.fill(ai_settings.bg_color)
-    background = Background("images/space-1.jpg")
-    screen.blit(background.image, background.rect)
+    # background = Background("images/space-1.jpg")
+    # screen.blit(background.image, background.rect)
     # Redraw all bullets behind ship and aliens.
     for bullet in bullets.sprites():
         bullet.draw_bullet()

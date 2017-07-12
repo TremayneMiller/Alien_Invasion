@@ -12,9 +12,9 @@ class Alien(Sprite):
         self.speed_factor = ai_settings.alien_speed_factor
 
         # Load the alien image on the screen
-        self.image = pygame.image.load('images/pixel-alien.png')
+        self.image = pygame.image.load('images/alien.bmp')
         self.rect = self.image.get_rect()
-        print(self.rect)
+        # print(self.rect)
 
         # Start each new alien near the top left of the screen
         self.rect.x = self.rect.width
